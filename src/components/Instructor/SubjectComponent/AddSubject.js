@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import baseUrl from '../../baseUrl';
 
 function AddSubject(props) {
 const navigate = useNavigate();
@@ -16,7 +17,7 @@ const navigate = useNavigate();
     const onSubmit = async (e) => {
         e.preventDefault();
         
-        await axios.post("http://localhost:8080/api/subject", subject);
+        await axios.post(`${baseUrl}/api/subject`, subject);
         navigate("/Subject");
     }
 

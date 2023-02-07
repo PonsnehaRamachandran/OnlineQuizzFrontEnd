@@ -1,7 +1,7 @@
-   import axios from "axios";
-   import {useEffect , useState} from "react";
-   import {useNavigate , useParams} from "react-router-dom";
-
+import axios from "axios";
+import {useEffect , useState} from "react";
+import {useNavigate , useParams} from "react-router-dom";
+import baseUrl from "../../baseUrl";
 
     
     function QuizzDetails(){
@@ -19,7 +19,7 @@
         useEffect(() => {
           
              async function getDetails(){
-                const value = await axios.get(`http://localhost:8080/api/quizz/${id}`);
+                const value = await axios.get(`${baseUrl}/api/quizz/${id}`);
                 setQuizz(value.data);
              }
              getDetails();

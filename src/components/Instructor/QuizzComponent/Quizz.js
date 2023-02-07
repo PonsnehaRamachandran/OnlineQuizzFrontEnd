@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams ,NavLink ,useNavigate} from "react-router-dom";
-
+import baseUrl from "../../baseUrl";
 export default function Quizz() {
   const [quizzes, setQuizzes] = useState([]);
 
@@ -12,7 +12,7 @@ export default function Quizz() {
   }, []);
 
   const loadQuizzes = async () => {
-    const result = await axios.get("http://localhost:8080/api/quizz");
+    const result = await axios.get(`${baseUrl}/api/quizz`);
     setQuizzes(result.data);
   };
 //////////////////////////////handle goback
@@ -24,7 +24,7 @@ function handleGoBack(){
 
   ////////////////////////////Delete///////////////////////
   const deleteQuizz = async (id) => {
-    await axios.delete(`http://localhost:8080/api/quizz/${id}`);
+    await axios.delete(`${baseUrl}/api/quizz/${id}`);
     loadQuizzes();
   };
 ///////////////////Viewing quizz///////////

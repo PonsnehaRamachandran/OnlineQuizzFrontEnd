@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams,NavLink,useNavigate} from "react-router-dom";
+import baseUrl from "../../baseUrl";
 ///////////////////////Fetching datas
 export default function Subject() {
   const [subjects, setSubjects] = useState([]);
@@ -12,7 +13,7 @@ export default function Subject() {
   }, []);
 
   const loadSubjects = async () => {
-    const result = await axios.get("http://localhost:8080/api/subjects");
+    const result = await axios.get(`${baseUrl}/api/subjects`);
     setSubjects(result.data);
   };
 
@@ -24,7 +25,7 @@ export default function Subject() {
       }
 /////////////////////Deleting subject
   const deleteSubject = async (subjectId) => {
-    await axios.delete(`http://localhost:8080/api/subject/${subjectId}`);
+    await axios.delete(`${baseUrl}/api/subject/${subjectId}`);
     loadSubjects();
   };
 ///////////////////////Adding subject

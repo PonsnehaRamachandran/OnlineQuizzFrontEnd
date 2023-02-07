@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink, useParams ,useNavigate} from "react-router-dom";
-
+import baseUrl from "../../baseUrl";
 export default function Question() {
     const [questions,setQuestions]=useState([]);
 
@@ -12,7 +12,7 @@ export default function Question() {
   }, []);
 
   const loadQuestions = async () => {
-    const result = await axios.get("http://localhost:8080/api/questions");
+    const result = await axios.get(`${baseUrl}/api/questions`);
     setQuestions(result.data);
   };
 ////////////////handle goback

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate,NavLink, useParams } from 'react-router-dom';
-
+import baseUrl from '../../baseUrl';
 function AddQuestion() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ function AddQuestion() {
         quizz:id
       }); 
 
-      await axios.post('http://localhost:8080/api/questions', question);
+      await axios.post(`${baseUrl}/api/questions`, question);
       navigate("/Quizz");
    
 }

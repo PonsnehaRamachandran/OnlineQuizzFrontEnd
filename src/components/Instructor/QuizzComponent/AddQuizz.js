@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import baseUrl from '../../baseUrl';
 function AddQuizz(props) {
     
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ function AddQuizz(props) {
     
         const onSubmit = async (e) => {
             e.preventDefault();
-            await axios.post("http://localhost:8080/api/quizz", quizz)
+            await axios.post(`${baseUrl}/api/quizz`, quizz)
             navigate("/Quizz");
         }
     ////////////////////////////////////handlogoback

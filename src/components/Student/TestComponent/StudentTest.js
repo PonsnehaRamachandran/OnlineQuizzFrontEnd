@@ -2,13 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import { useParams ,Link } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
+import baseUrl from '../../baseUrl';
 function StudentTest(props) {
     let { id} = useParams();
     const [allQuestions , setAllQuestions] = useState([]);
 
     useEffect(() => {
         async function getAllQuestions(){
-            let value = await axios.get(`http://localhost:8080/api/quizz/${id}/questions`);
+            let value = await axios.get(`${baseUrl}/api/quizz/${id}/questions`);
             setAllQuestions(value.data);
             //console.log(value.data);
         }

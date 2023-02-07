@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate , useParams ,NavLink} from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import baseUrl from '../../baseUrl';
 function ViewQuestion(props) {
 
   const { id } = useParams();
@@ -16,7 +17,7 @@ const [questions , setQuestions] = useState([]);
 
       useEffect(() => {
           async function getAllQuestions(){
-            let value = await axios.get(`http://localhost:8080/api/quizz/${id}/questions`);
+            let value = await axios.get(`${baseUrl}/api/quizz/${id}/questions`);
             setQuestions(value.data);
             //console.log(value.data);
           } 
@@ -93,13 +94,13 @@ const [check , setCheck] = useState();
 
 
 async function updateQuestion(){
-await axios.put(`http://localhost:8080/api/questions/${qId}` , updatedQ);
+await axios.put(`${baseUrl}/api/questions/${qId}` , updatedQ);
 setCheck(true);
 }
 if(check) return <ViewQuestion />;
 ////////////////////////handle delete
 const deleteQuestion = async (questionId) => {
-  await axios.delete(`http://localhost:8080/questions/${questionId}`);
+  await axios.delete(`${baseUrl}/questions/${questionId}`);
  // getAllQuestions();
 };
 

@@ -1,14 +1,14 @@
 import axios from "axios";
 import {useEffect , useState} from "react";
 import {useNavigate ,NavLink } from "react-router-dom";
-
+import baseUrl from "../../baseUrl";
  function StudentQuizz(){
      
      const [quizz , setQuizz] = useState([]);
 
      const ViewQuizz = async () => {
 
-      const result = await axios.get("http://localhost:8080/api/quizz");
+      const result = await axios.get(`${baseUrl}/api/quizz`);
       console.log(result);
       setQuizz(result.data);
 
