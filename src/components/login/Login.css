@@ -1,0 +1,9 @@
+.form-group label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    margin-top: 0.25rem;
+  }
+  
